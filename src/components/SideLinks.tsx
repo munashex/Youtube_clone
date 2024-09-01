@@ -47,7 +47,7 @@ const SideLinks = ({ handleShowLinks }: SideLinksProps) => {
     const location = useLocation()
 
   return (
-    <div className="fixed top-0 bottom-0 w-44 md:w-48 bg-[#F5F5F5] border shadow-xl">
+    <div className="fixed z-30 top-0 bottom-0 w-44 md:w-48 bg-[#F5F5F5] border shadow-xl">
        
        <div className="flex flex-row items-center gap-x-4 justify-between px-2 py-6">
         <button onClick={handleShowLinks}><HiBars3 size={40} /></button>
