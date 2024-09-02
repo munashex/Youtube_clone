@@ -1,5 +1,6 @@
 import React from 'react';
-import { VideoTypes } from '../types/Video';
+import { VideoTypes } from '../types/Video'; 
+import { Link } from 'react-router-dom';
 
 
 interface VideoProps {
@@ -14,13 +15,13 @@ const formatViewCount = (viewCount: string): string => {
   return `${count}`;
 };
 
-const Video: React.FC<VideoProps> = ({ video }) => {
+const Videos: React.FC<VideoProps> = ({ video }) => {
   const thumbnailUrl = video.thumbnail?.[1]?.url || video.thumbnail?.[0]?.url;
   const channelThumbnailUrl = video.channelThumbnail?.[0]?.url;
 
   return (
     <div className="flex flex-col">
-      <div className="relative">
+      <Link to={`/video/${video.videoId}`} className="relative">
         <img 
           src={thumbnailUrl} 
           alt={video.title} 
@@ -29,7 +30,7 @@ const Video: React.FC<VideoProps> = ({ video }) => {
         <span className="absolute bottom-1 right-1 bg-black text-white text-xs font-semibold px-1 py-0.5 rounded">
           {video.lengthText}
         </span>
-      </div>
+      </Link>
       <div className="flex mt-3 space-x-3">
         <img 
           src={channelThumbnailUrl} 
@@ -44,7 +45,7 @@ const Video: React.FC<VideoProps> = ({ video }) => {
             {video.channelTitle}
           </p>
           <p className="text-gray-600">
-            {formatViewCount(video.viewCount) || '9'} views • {video.publishedTimeText}
+            {formatViewCount(video.viewCount)} views • {video.publishedTimeText}
           </p>
         </div>
       </div>
@@ -52,6 +53,6 @@ const Video: React.FC<VideoProps> = ({ video }) => {
   );
 };
 
-export default Video;
+export default Videos;
 
 

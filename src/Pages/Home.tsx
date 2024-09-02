@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Video from '../components/Video';
+import Videos from '../components/Videos';
 import { VideoTypes } from '../types/Video';
 import Loader from '../components/Loader';
 
@@ -44,9 +44,9 @@ function Home() {
   }
 
   return (
-    <div className="grid grid-cols-1 my-20 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 justify-items-center mx-3 lg:mx-9">
+    <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 justify-items-center">
       {feed.map((video) => (
-        <Video key={video.videoId} video={video} />
+        <Videos key={video.videoId} video={video} />
       ))}
     </div> 
   );

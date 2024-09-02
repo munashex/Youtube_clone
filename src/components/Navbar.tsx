@@ -7,6 +7,7 @@ import SideLinks from "./SideLinks";
 
 
 
+
 const Navbar = () => { 
   const [showSearch, setShowSearch] = useState(false)  
   const [showLinks, setShowLinks] = useState(false)
@@ -17,7 +18,8 @@ const Navbar = () => {
 
     return (
          <div>
-        <div className="mx-3 lg:mx-9 my-5">
+          <div className="fixed top-0 left-0 right-0 z-40 bg-white">
+          <div className="mx-3 lg:mx-9 my-5">
           {/* navbar on sm screens */}
             {showSearch ? 
             (
@@ -62,7 +64,8 @@ const Navbar = () => {
               
             {/* side Links  */}
             </div>
-            {showLinks ?  <SideLinks  handleShowLinks={handleShowLinks}/> : null} 
+           </div>
+            {showLinks ?  <SideLinks/> : null} 
            </div>
     )
 }

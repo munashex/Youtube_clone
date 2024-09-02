@@ -1,5 +1,3 @@
-import { HiBars3 } from 'react-icons/hi2';
-import Logo from '../images/youtube.png';
 import { IoMdHome } from "react-icons/io";
 import { SiYoutubeshorts } from "react-icons/si"; 
 import {Link, useLocation} from 'react-router-dom' 
@@ -9,10 +7,6 @@ import { GrGamepad } from "react-icons/gr";
 import { RiNewsLine } from "react-icons/ri";
 import { MdPodcasts } from "react-icons/md";
 
-
-interface SideLinksProps {
-  handleShowLinks: () => void;
-}
 
 const navLinks = [
   {
@@ -42,18 +36,13 @@ const navLinks = [
   }
 ]
 
-const SideLinks = ({ handleShowLinks }: SideLinksProps) => {
+const SideLinks = () => {
 
     const location = useLocation()
 
   return (
     <div className="fixed z-30 top-0 bottom-0 w-44 md:w-48 bg-[#F5F5F5] border shadow-xl">
        
-       <div className="flex flex-row items-center gap-x-4 justify-between px-2 py-6">
-        <button onClick={handleShowLinks}><HiBars3 size={40} /></button>
-        <img src={Logo} alt="Logo" className="w-16 md:w-20" />
-      </div> 
-
     
 
       <div className="my-9 space-y-6">
