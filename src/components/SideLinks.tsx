@@ -41,7 +41,7 @@ const SideLinks = () => {
     const location = useLocation()
 
   return (
-    <div className="fixed z-30 top-0 bottom-0 w-44 md:w-48 bg-[#F5F5F5] border shadow-xl">
+    <div className="fixed z-30 top-0 bottom-0 w-44 md:w-48 bg-white border shadow-xl">
        
     
 

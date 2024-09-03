@@ -2,7 +2,6 @@ import React from 'react';
 import { VideoTypes } from '../types/Video'; 
 import { Link } from 'react-router-dom';
 
-
 interface VideoProps {
   video: VideoTypes;
 }
@@ -15,9 +14,8 @@ const formatViewCount = (viewCount: string): string => {
   return `${count}`;
 };
 
-const Videos: React.FC<VideoProps> = ({ video }) => {
+const ChannelVideos: React.FC<VideoProps> = ({ video }) => {
   const thumbnailUrl = video.thumbnail?.[1]?.url || video.thumbnail?.[0]?.url;
-  const channelThumbnailUrl = video.channelThumbnail?.[0]?.url;
 
   return (
     <div className="flex flex-col">
@@ -31,17 +29,12 @@ const Videos: React.FC<VideoProps> = ({ video }) => {
           {video.lengthText}
         </span>
       </Link>
-      <div className="flex mt-3 space-x-3">
-        <img 
-          src={channelThumbnailUrl} 
-          alt={video.channelTitle} 
-          className="w-9 h-9 rounded-full flex-shrink-0"
-        />
+      <div className="mt-2">
         <div className="flex flex-col">
           <h3 className="font-semibold line-clamp-2 leading-5">
             {video.title}
           </h3>
-          <Link to={`/channel/${video.channelId}`} className="text-gray-600  mt-1">
+          <Link to={`/channel/${video.channelId}`} className="text-gray-600 mt-1">
             {video.channelTitle}
           </Link>
           <p className="text-gray-600">
@@ -53,6 +46,5 @@ const Videos: React.FC<VideoProps> = ({ video }) => {
   );
 };
 
-export default Videos;
-
+export default ChannelVideos;
 
