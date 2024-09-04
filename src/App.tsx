@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'  
 import Video from './Pages/Video' 
 import Channel from './Pages/Channel'
-import Short from './Pages/Short'
+import Short from './Pages/Short' 
+import Search from './Pages/Search' 
+import NotFound from './Pages/NotFound' 
+import Footer from './components/Footer'
 
 
 const App = () => {
@@ -18,7 +21,10 @@ const App = () => {
         <Route path="/video/:id" element={<Video/>}/> 
         <Route path="/channel/:id" element={<Channel/>}/>  
         <Route path="/short/:id" element={<Short/>}/>
+        <Route path="/search/:id" element={<Search/>}/>
+        <Route path="*" element={<NotFound/>}/>
         </Routes> 
+        <Footer/>
         </div>
     </Router>
   )

@@ -6,7 +6,7 @@ import { VideoTypes } from '../types/Video';
 import ChannelVideos from '../components/ChannelVideos';
 import { ShortsTypes } from '../types/Shorts';
 import Shorts from '../components/Shorts';
-import banner from '../images/banner.png'
+import banner from '../images/banner.png'; 
 import { FeaturedTypes } from '../types/Featured';
 
 interface ChannelMeta {
@@ -44,9 +44,10 @@ function Channel() {
         }
       });
       setChannel(response.data);
-      setLoading(false);
     } catch (err) {
       console.log(err);
+      setChannel(null);
+    } finally {
       setLoading(false);
     }
   };
@@ -81,20 +82,20 @@ function Channel() {
     }
   };
 
-  const getFeaturedChannel = async(channelId: string | undefined) => {
-   try{
-    const response = await axios.get(`https://yt-api.p.rapidapi.com/channel/channels?id=${channelId}`, {
-      headers: {
-      'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
-      'X-RapidAPI-Host': 'yt-api.p.rapidapi.com',
-      }
-    });
-    setFeatured(response.data.data || []);
-   }catch(err) {
-    console.log(err);
-    setFeatured([]);
-   }
-  }
+  const getFeaturedChannel = async (channelId: string | undefined) => {
+    try {
+      const response = await axios.get(`https://yt-api.p.rapidapi.com/channel/channels?id=${channelId}`, {
+        headers: {
+          'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
+          'X-RapidAPI-Host': 'yt-api.p.rapidapi.com',
+        }
+      });
+      setFeatured(response.data.data || []);
+    } catch (err) {
+      console.log(err);
+      setFeatured([]);
+    }
+  };
 
   useEffect(() => {
     if (id) {
@@ -116,6 +117,8 @@ function Channel() {
   if (!channel) {
     return <div>No channel data available.</div>;
   }
+
+  const bannerUrl = channel.meta.banner[0]?.url || channel.meta.banner[1]?.url || banner;
 
   const renderTabContent = () => {
     switch (tab) {
@@ -147,13 +150,13 @@ function Channel() {
             )}
           </div>
         );
-      case 'featured': 
+      case 'featured':
         return (
           <div className="my-8 flex flex-row flex-wrap gap-4">
             {featured.length > 0 ? (
               featured.map((channel) => (
-                <div key={channel.channelId} className="space-y-1.5"> 
-                  <img src={channel.thumbnail[0]?.url} alt={channel.title} /> 
+                <div key={channel.channelId} className="space-y-1.5">
+                  <img src={channel.thumbnail[0]?.url} alt={channel.title} />
                   <h1 className="text-lg font-semibold">{channel.title}</h1>
                   <h1 className="font-semibold">{channel.subscriberCount}</h1>
                 </div>
@@ -172,8 +175,8 @@ function Channel() {
     <div className="container mx-auto">
       <div className="mb-8">
         <img
-          src={channel.meta.banner[0]?.url || channel.meta.banner[1]?.url || banner}
-          alt={`${channel.meta.title}`}
+          src={bannerUrl}
+          alt={channel.meta.title}
           className="w-full h-32 md:h-48 object-cover rounded-lg"
         />
         <div className="flex items-center mt-4">

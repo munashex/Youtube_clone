@@ -20,7 +20,7 @@ function Home() {
 
       // Filter out videos that don't have thumbnails
       const filteredData = response.data.data.filter((video: VideoTypes) => 
-        video.thumbnail && video.channelId && video.thumbnail.length  > 0
+        video.thumbnail && video.channelId && video.thumbnail.length  > 0 && video.videoId
       );
 
       setFeed(filteredData);
