@@ -16,16 +16,16 @@ const formatViewCount = (viewCount: string): string => {
 };
 
 const ChannelVideos: React.FC<VideoProps> = ({ video }) => {
-  const thumbnailUrl = video.thumbnail?.[2]?.url || video.thumbnail?.[0]?.url;
+  const thumbnailUrl = video.thumbnail?.[0]?.url || video.thumbnail?.[1]?.url;
   
 
   return (
-  <Link to={`/video/${video.videoId}`} className="flex flex-col gap-x-2">
+  <Link to={`/video/${video.videoId}`} className="flex flex-col gap-x-2 gap-y-1">
     <img src={thumbnailUrl} alt={video.title} 
     className="w-full h-56 rounded-md"
     />
-    <div className="flex flex-col gap-x-1"> 
-      <h1 className="font-bold">{video.title.length < 58 ? video.title : video.title.slice(0, 58) + '....'}</h1> 
+    <div className="flex flex-col gap-x-1 gap-y-1"> 
+      <h1 className="md:font-bold">{video.title.length < 58 ? video.title : video.title.slice(0, 58) + '....'}</h1> 
       <p className=" text-gray-500 inline-flex items-center gap-x-2">
         <span>{formatViewCount(video.viewCount)}  views • </span> 
         <span>{video.publishedTimeText}</span>

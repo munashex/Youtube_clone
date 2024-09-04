@@ -45,7 +45,7 @@ const Videos: React.FC<VideoProps> = ({ video }) => {
             {video.channelTitle}
           </Link>
           <p className="text-gray-600">
-            {formatViewCount(video.viewCount)} views • {video.publishedTimeText}
+            {formatViewCount(video.viewCount) || 13} views • {video.publishedTimeText || '2 days ago'}
           </p>
         </div>
       </div>

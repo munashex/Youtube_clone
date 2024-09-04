@@ -41,11 +41,11 @@ const SideLinks = () => {
     const location = useLocation()
 
   return (
-    <div className="fixed z-30 top-0 bottom-0 w-44 md:w-48 bg-white border shadow-xl">
+    <div className="fixed z-30 top-20 bottom-0 w-44 md:w-48 bg-white border shadow-xl">
        
     
 
-      <div className="my-9 space-y-6">
+      <div className="my-6 space-y-6">
         <Link to="/" className={`flex items-center gap-x-5 px-2 ${location.pathname === '/' ? 'border py-2 bg-gray-200' : ''}`}>
         <IoMdHome size={28}/> 
          <span className="text-lg">Home</span>
