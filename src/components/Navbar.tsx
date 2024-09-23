@@ -43,7 +43,7 @@ const Navbar = () => {
                 <input
                   placeholder="Search"
                   onChange={handleInputChange}
-                  className="border outline-none w-full py-1 placeholder:text-center text-center rounded-l-full border-blue-500"
+                  className="border w-full py-1 placeholder:text-center text-center rounded-l-full border-gray-500"
                 />
                 <button
                   type="submit"
@@ -84,11 +84,11 @@ const Navbar = () => {
               <input
                 placeholder="Search"
                 onChange={handleInputChange}
-                className="border outline-none w-full placeholder:text-center text-center rounded-l-full border-black"
+                className="border  w-full placeholder:text-center text-center rounded-l-full border-gray-400"
               />
               <button
                 type="submit"
-                className="border cursor-pointer py-1 px-2 rounded-r-full"
+                className="border  cursor-pointer py-1 px-2 rounded-r-full"
                 disabled={search.length < 1}
               >
                 <IoSearchOutline size={30}/>

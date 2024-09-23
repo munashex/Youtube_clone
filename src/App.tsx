@@ -6,7 +6,7 @@ import Channel from './Pages/Channel'
 import Short from './Pages/Short' 
 import Search from './Pages/Search' 
 import NotFound from './Pages/NotFound' 
-import Footer from './components/Footer'
+
 
 
 const App = () => {
@@ -24,7 +24,6 @@ const App = () => {
         <Route path="/search/:id" element={<Search/>}/>
         <Route path="*" element={<NotFound/>}/>
         </Routes> 
-        <Footer/>
         </div>
     </Router>
   )
